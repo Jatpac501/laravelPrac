@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RouteController;
+use App\Http\Controllers\groupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +13,4 @@ use App\Http\Controllers\RouteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-Route::controller(RouteController::class)->group(function () {
-    Route::get('/test/{id}', 'test');
-});
+Route::resource('group', groupController::class);
