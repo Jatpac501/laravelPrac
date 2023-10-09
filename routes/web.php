@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RouteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/welcome', function () {
     return view('welcome');
+});
+Route::controller(RouteController::class)->group(function () {
+    Route::get('/test/{id}', 'test');
 });
