@@ -8,7 +8,7 @@
         @csrf
         <div class="card__title">Добавление группы</div>
         <input class="card__input" placeholder="Название группы" type="text" name="Название группы" id="groupName">
-        <div id="addEducatorBtn" class="btn btn-neutral">Добавить предподавателя</div>
+        <div id="addStudentBtn" class="btn btn-neutral">Добавить студента</div>
         <div class="card__list"></div>
         <button class="btn btn-add" type="submit">Добавить</button>
     </form>

@@ -16,6 +16,7 @@ class groupController extends Controller
     }
     public function store(Request $request)
     {
+        dd($request);
         return view('group');
     }
     public function show(string $id)
