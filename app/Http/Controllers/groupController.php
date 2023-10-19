@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Groups;
 
 class groupController extends Controller
 {
     public function index()
     {
-        return view('group');
+        $data = Groups::all();
+        return view('group', ['data' => $data]);
     }
     public function create()
     {
@@ -16,8 +18,17 @@ class groupController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request);
-        return view('group');
+        $validateData = $request->validate([
+            'name' =>'required|string|max:30',
+            'course' =>'required|integer|max:5',
+            'faculty' =>'required|string|max:255',
+        ]);
+        $group = new Groups();
+        $group->name = $validateData['name'];
+        $group->course = $validateData['course'];
+        $group->faculty = $validateData['faculty'];
+        $group->save();
+        return redirect('/group');
     }
     public function show(string $id)
     {

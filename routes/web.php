@@ -13,6 +13,6 @@ use App\Http\Controllers\groupController;
 |
 */
 Route::get('/', function () {
-    return view('group');
+    return phpinfo();
 });
 Route::resource('group', groupController::class);

@@ -30,11 +30,9 @@
     <div class="card">
         <div class="card__title">3 курс</div>
         <div class="card__links">
-            <a href="/group/ИСдо-31/" class="card__link">ИСдо-31</a>
-            <a href="/group/ИСдо-32/" class="card__link">ИСдо-32</a>
-            <a href="/group/ИСдо-33/" class="card__link">ИСдо-33</a>
-            <a href="/group/ИСдо-34/" class="card__link">ИСдо-34</a>
-            <a href="/group/ИСдо-35/" class="card__link">ИСдо-35</a>
+            @foreach ($data as $group)
+            <a href="/group/{{ $group->name }}/" class="card__link">{{ $group->name }}</a>
+            @endforeach
         </div>
     </div>
     <div class="card">
