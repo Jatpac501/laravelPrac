@@ -9,8 +9,8 @@ class groupController extends Controller
 {
     public function index()
     {
-        $data = Groups::all();
-        return view('group', ['data' => $data]);
+        $courses = Groups::orderBy('course')->orderBy('name')->get()->groupBy('course');
+        return view('group', ['courses' => $courses]);
     }
     public function create()
     {
@@ -19,9 +19,9 @@ class groupController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'name' =>'required|string|max:30',
-            'course' =>'required|integer|max:5',
-            'faculty' =>'required|string|max:255',
+            'name'=>'required|string|max:30',
+            'course'=>'required|integer|max:5',
+            'faculty'=>'required|string|max:1024',
         ]);
         $group = new Groups();
         $group->name = $validateData['name'];
@@ -32,15 +32,23 @@ class groupController extends Controller
     }
     public function show(string $id)
     {
-        return view('group__show');
+        $data = Groups::where('name', $id)->first();
+        return view('group__show', ['data' => $data]);
     }
     public function edit(string $id)
     {
-        return view('group__create');
+        $data = Groups::where('name', $id)->first();
+        return view('group__edit', ['data' => $data]);
     }
     public function update(Request $request, string $id)
     {
-        return view('group');
+        $group = Groups::find($id);
+        $group->update([
+            'name' => $request->input('name'),
+            'course' => $request->input('course'),
+            'faculty' => $request->input('faculty'),
+        ]);
+        return redirect('/group');
     }
     public function destroy(string $id)
     {
