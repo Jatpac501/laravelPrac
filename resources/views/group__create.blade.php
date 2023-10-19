@@ -1,16 +1,16 @@
 @extends('layout')
 @section('btn')
-<a class="btn btn-back" href="{{route('group.index')}}">Назад</a>
+<a class="btn btn-secondary btn-lg" href="{{route('group.index')}}">Назад</a>
 @endsection
 @section('main')
 <div class="main">
-    <form method="POST" action="{{route('group.store')}}" class="card" autocomplete="off">
+    <form method="POST" action="{{route('group.store')}}" class="" autocomplete="off">
         @csrf
-        <div class="card__title">Добавление группы</div>
-        <input class="card__input" placeholder="Название группы" type="text" name="name" id="groupName">
-        <input class="card__input" placeholder="Номер курса" type="number" name="course" id="groupName">
-        <input class="card__input" placeholder="Факультет" type="text" name="faculty" id="groupName">
-        <button class="btn btn-add" type="submit">Добавить</button>
+        <h2 class="mb-3">Добавление группы</h2>
+        <input class="form-control form-control-lg mb-3" placeholder="Название группы" type="text" name="name" id="groupName">
+        <input class="form-control mb-3" placeholder="Номер курса" type="number" name="course" id="groupName">
+        <input class="form-control mb-3" placeholder="Факультет" type="text" name="faculty" id="groupName">
+        <button class="btn btn-success" type="submit">Добавить</button>
     </form>
 </div>
 @endsection
