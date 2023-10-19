@@ -1,12 +1,20 @@
-@extends('layout');
+@extends('layout')
 @section('btn')
-<a class="btn btn-back" href="/group">Назад</a>
+<a class="btn btn-back" href="{{route('group.index')}}">Назад</a>
 @endsection
 @section('main')
 <div class="main">
     <div class="card">
-        <div class="card__title">{{ $data->name }}</div>
-        <a class="btn btn-neutral" href="./edit">Изменить</a>
+        <div class="card__title">{{ $group->name }}</div>
+        @foreach ($students as $student)
+            <div class="card__student">{{ $student->surname }} {{ $student->name }}
+            @if ($student->headOfGroup)
+            <span class="card__student--headOfGroup">(Староста)</span>
+            @endif
+            </div>
+        @endforeach
+        <a class="btn btn-neutral" href="{{ route('group.edit', [$group->id])}}">Изменить</a>
     </div>
 </div>
 @endsection
+

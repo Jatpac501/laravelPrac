@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
+    public $timestamps = false;
     protected $table = 'schedule';
     protected $fillable = ['Week', 'dayWeek', 'Сouple', 'group_id', 'teacher_id', 'subject_id', 'room_id' ];
     public function group()

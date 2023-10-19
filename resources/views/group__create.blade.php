@@ -1,10 +1,10 @@
 @extends('layout')
 @section('btn')
-<a class="btn btn-back" href="/group">Назад</a>
+<a class="btn btn-back" href="{{route('group.index')}}">Назад</a>
 @endsection
 @section('main')
 <div class="main">
-    <form method="POST" action="/group" class="card" autocomplete="off">
+    <form method="POST" action="{{route('group.store')}}" class="card" autocomplete="off">
         @csrf
         <div class="card__title">Добавление группы</div>
         <input class="card__input" placeholder="Название группы" type="text" name="name" id="groupName">

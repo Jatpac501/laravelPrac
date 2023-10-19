@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Groups;
+use App\Models\Students;
 
 class groupController extends Controller
 {
@@ -32,17 +33,18 @@ class groupController extends Controller
     }
     public function show(string $id)
     {
-        $data = Groups::where('name', $id)->first();
-        return view('group__show', ['data' => $data]);
+        $group = Groups::find($id);
+        $students = Students::where('group_id', $id)->orderBy('surname')->get();
+        return view('group__show', ['group' => $group, 'students' => $students]);
     }
     public function edit(string $id)
     {
-        $data = Groups::where('name', $id)->first();
-        return view('group__edit', ['data' => $data]);
+        $group = Groups::find($id);
+        return view('group__edit', ['group' => $group]);
     }
     public function update(Request $request, string $id)
     {
-        $group = Groups::find($id);
+        $group = Groups::findOrFail($id);
         $group->update([
             'name' => $request->input('name'),
             'course' => $request->input('course'),
@@ -52,6 +54,8 @@ class groupController extends Controller
     }
     public function destroy(string $id)
     {
-        //
+        $group = Groups::findOrFail($id);
+        $group->delete();
+        return redirect('/group');
     }
 }
