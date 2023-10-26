@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-bs-theme="dark">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,31 +13,18 @@
         * {
             font-family: 'Montserrat', sans-serif;
         }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        #app {
-            min-height: 30dvh;
-        }
     </style>
 </head>
-<body class="container">
-    <div id="app" class="">
-        <header id="header" class="navbar border border-body ">
-            <button type="button" class="btn btn-outline-primary">Группы</button>
-            <button type="button" class="btn btn-outline-primary">Предподаватели</button>
-            <button type="button" class="btn btn-outline-primary">Студенты</button>
-            <button type="button" class="btn btn-outline-primary">Предметы</button>
-            @yield('header-btn')
-        </header>
-        <main id="main">
-            @yield('main')
-        </main>
+<body>
+<div class="container">
+    <div class="" id="app">
+        <div class="d-flex align-items-center justify-content-between m-3">
+            <a class="btn btn-outline-primary btn-lg" href="{{route('group.index')}}">Группы</a>
+            @yield('btn')
+        </div>
+        @yield('main')
     </div>
+</div>
     @yield('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
