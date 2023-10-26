@@ -1,4 +1,4 @@
 @extends('layout')
 @section('main')
-    <div class="div">КЭИ</div>
+    <div class="container">КЭИ</div>
 @endsection
