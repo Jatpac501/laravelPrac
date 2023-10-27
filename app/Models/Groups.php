@@ -8,5 +8,6 @@ class Groups extends Model
 {
     public $timestamps = false;
     protected $table = 'groups';
+    protected $primaryKey = 'id';
     protected $fillable = ['name', 'course', 'faculty'];
 }

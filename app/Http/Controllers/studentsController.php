@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Groups;
+use App\Models\Students;
+use App\Http\Requests\StoreStudentRequest;
 
 class studentsController extends Controller
 {
@@ -11,54 +14,52 @@ class studentsController extends Controller
      */
     public function index()
     {
-        //
+        return redirect('/groups');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('students/create',[
+            'groups' => Groups::orderBy('course')->orderBy('name')->get()
+            ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
-        //
+        Students::create($request->validated());
+        return redirect('/groups');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(int $id)
     {
-        //
+        return view('students/show',[
+            'student' => Students::find($id),
+            'group' => Groups::where('id', Students::find($id)->group_id)->first()
+            ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        return view('students/edit',[
+            'student' => Students::find($id),
+            'groups' => Groups::orderBy('course')->orderBy('name')->get()
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(StoreStudentRequest $request, string $id)
     {
-        //
+        Students::findOrFail($id)->update($request->validated());
+        return view('students/show',[
+            'student' => Students::find($id),
+            'group' => Groups::where('id', Students::find($id)->group_id)->first()
+            ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
-        //
+        Students::findOrFail($id)->delete();
+        return redirect('/groups');
     }
 }
