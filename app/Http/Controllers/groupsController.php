@@ -40,7 +40,10 @@ class groupsController extends Controller
     public function update(StoreGroupRequest $request, string $id)
     {
         Groups::findOrFail($id)->update($request->validated());
-        return redirect('/groups');
+        return view('groups/show',[
+            'group' => Groups::findOrFail($id),
+            'students' => Students::where('group_id', $id)->orderBy('surname')->get()
+        ]);
     }
     public function destroy(string $id)
     {

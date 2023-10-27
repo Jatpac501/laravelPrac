@@ -4,13 +4,16 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="">{{ $group->name }}</h2>
-                @foreach ($students as $student)
-                    <div class="">{{ $student->surname }} {{ $student->name }}
-                    @if ($student->headOfGroup)
-                    <span class="">(Староста)</span>
-                    @endif
+                    <div class="d-flex flex-column">
+                        @foreach ($students as $student)
+                            <a class="m-1 btn btn-outline-info" href="{{ route('students.show', [$student->id])}}" class="btn btn-outline-secondary btn-sm">
+                                {{ $student->surname }} {{ $student->name }}
+                                @if ($student->headOfGroup)
+                                <span class="text-warning-emphasis">(Староста)</span>
+                                @endif
+                            </a>
+                        @endforeach
                     </div>
-                @endforeach
             </div>
             <a class="btn btn-outline-secondary" href="{{ route('groups.edit', [$group->id])}}">Изменить</a>
             </div>
