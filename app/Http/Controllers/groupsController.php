@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGroupRequest;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Models\Groups;
 use App\Models\Students;
 
@@ -11,8 +11,9 @@ class groupsController extends Controller
 {
     public function index()
     {
-        $courses = Groups::orderBy('course')->orderBy('name')->get()->groupBy('course');
-        return view('groups/index', ['courses' => $courses]);
+        return view('groups/index',[
+            'courses' => Groups::orderBy('course')->orderBy('name')->get()->groupBy('course')
+            ]);
     }
     public function create()
     {
@@ -21,32 +22,30 @@ class groupsController extends Controller
     public function store(StoreGroupRequest $request)
     {
         $validatedData = $request->validated();
-        $group = new Groups($validatedData);
-        $group->save();
+        Groups::create($validatedData);
         return redirect('/groups');
     }
     public function show(string $id)
     {
-        $group = Groups::find($id);
-        $students = Students::where('group_id', $id)->orderBy('surname')->get();
-        return view('groups/show', ['group' => $group, 'students' => $students]);
+        return view('groups/show',[
+            'group' => Groups::findOrFail($id),
+            'students' => Students::where('group_id', $id)->orderBy('surname')->get()
+        ]);
     }
     public function edit(string $id)
     {
-        $group = Groups::find($id);
-        return view('groups/edit', ['group' => $group]);
+        return view('groups/edit', [
+            'group' => Groups::find($id)
+        ]);
     }
     public function update(StoreGroupRequest $request, string $id)
     {
-        $validatedData = $request->validated();
-        $group = Groups::findOrFail($id);
-        $group->update($validatedData);
+        Groups::findOrFail($id)->update($request->validated());
         return redirect('/groups');
     }
     public function destroy(string $id)
     {
-        $group = Groups::findOrFail($id);
-        $group->delete();
+        Groups::findOrFail($id)->delete();
         return redirect('/groups');
     }
 }
