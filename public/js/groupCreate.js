@@ -10,8 +10,8 @@ const createStudentElement = () => {
     inputElement.className = 'card__input';
     inputElement.placeholder = 'ФИО';
     inputElement.type = 'text';
-    inputElement.value = `Студент ${studentCount + 1}`;
-    inputElement.name = `Студент ${studentCount + 1}`;
+    inputElement.value = `Студент${studentCount + 1}`;
+    inputElement.name = `Студент${studentCount + 1}`;
     inputElement.id = `student${studentCount + 1}`;
 
     const deleteButton = document.createElement('div');

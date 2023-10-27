@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\groupController;
+use App\Http\Controllers\groupsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,5 @@ use App\Http\Controllers\groupController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('group');
-});
-Route::resource('group', groupController::class);
+Route::get('/', function () {return view('index');});
+Route::resource('groups', groupsController::class);
