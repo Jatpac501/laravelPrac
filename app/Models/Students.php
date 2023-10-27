@@ -8,5 +8,7 @@ class Students extends Model
 {
     public $timestamps = false;
     protected $table = 'students';
-    protected $fillable = ['name', 'surname', 'phone', 'group_id', 'headOfGroup'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['name', 'surname', 'phone', 'group_id', 'headOfGroup'
+    ];
 }

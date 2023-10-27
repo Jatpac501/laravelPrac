@@ -21,8 +21,7 @@ class groupsController extends Controller
     }
     public function store(StoreGroupRequest $request)
     {
-        $validatedData = $request->validated();
-        Groups::create($validatedData);
+        Groups::create($request->validated());
         return redirect('/groups');
     }
     public function show(string $id)

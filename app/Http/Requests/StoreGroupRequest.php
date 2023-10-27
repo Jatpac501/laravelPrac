@@ -11,16 +11,12 @@ class StoreGroupRequest extends FormRequest
     {
         return true;
     }
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
-     */
+
     public function rules(): array
     {
         return [
             'name'=>'required|string|max:30',
-            'course'=>'required|integer|max:5',
+            'course'=>'required|integer|between:1,5',
             'faculty'=>'required|string|max:1024',
         ];
     }

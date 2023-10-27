@@ -8,6 +8,6 @@ class Teachers extends Model
 {
     public $timestamps = false;
     protected $table = 'teachers';
-
+    protected $primaryKey = 'id';
     protected $fillable = ['name', 'surname', 'email', 'phone'];
 }

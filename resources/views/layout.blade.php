@@ -17,7 +17,7 @@
 </head>
 <body class="">
     <div id="app" class="">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
             <div class="container-fluid">
               <a class="navbar-brand" href="/">КЭИ</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{{route('groups.create')}}">Добавить группу</a></li>
-                      <li><a class="dropdown-item" href=" ">Добавить студента</a></li>
+                      <li><a class="dropdown-item" href="{{route('students.create')}}">Добавить студента</a></li>
                       <li><a class="dropdown-item" href=" ">Добавить предподавателя</a></li>
                       <li><a class="dropdown-item" href=" ">Добавить предмет</a></li>
                     </ul>
