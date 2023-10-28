@@ -17,7 +17,7 @@ class studentsController extends Controller
     public function create()
     {
         return view('students/create',[
-            'groups' => Groups::orderBy('name')->orderBy('course')->all()
+            'groups' => Groups::orderBy('name')->orderBy('course')->get()
             ]);
     }
 
