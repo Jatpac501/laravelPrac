@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Groups;
 use App\Models\Teachers;
 use App\Http\Requests\StoreTeacherRequest;
+use App\Models\Subjects;
+
 class teachersController extends Controller
 {
     /**
@@ -37,7 +39,8 @@ class teachersController extends Controller
     {
         return view('teachers/show',[
             'teacher' => Teachers::find($id),
-            'group' => Groups::where('id', Teachers::find($id)->group_id)->first()
+            'group' => Groups::where('id', Teachers::find($id)->group_id)->first(),
+            'subjects' => Subjects::where('teacher_id', $id)->get()
             ]);
     }
 
