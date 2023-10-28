@@ -3,17 +3,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Группы</h1>
-                @foreach ($courses as $course => $groups)
-                    <div class="card mb-3 p-2">
-                        <h3 class="">{{$course}} курс</h3>
-                        <div class="">
-                            @foreach ($groups as $group)
-                                <a href="{{route('groups.show', $group->id)}}" class="btn btn-outline-info btn-lg m-1">{{ $group->name }}</a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endforeach
+                <h1>Предподаватели</h1>
+                <div class="d-flex flex-column">
+                    @foreach ($teachers as $teacher)
+                        <a href="{{route('teachers.show', $teacher->id)}}" class="btn btn-outline-info btn-lg m-1">{{ $teacher->surname }} {{ $teacher->name }}</a>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

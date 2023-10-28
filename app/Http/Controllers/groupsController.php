@@ -6,6 +6,7 @@ use App\Http\Requests\StoreGroupRequest;
 //use Illuminate\Http\Request;
 use App\Models\Groups;
 use App\Models\Students;
+use App\Models\Teachers;
 
 class groupsController extends Controller
 {
@@ -28,6 +29,7 @@ class groupsController extends Controller
     {
         return view('groups/show',[
             'group' => Groups::findOrFail($id),
+            'teacher' => Teachers::where('group_id', $id)->first(),
             'students' => Students::where('group_id', $id)->orderBy('surname')->get()
         ]);
     }

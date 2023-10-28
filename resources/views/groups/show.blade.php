@@ -5,6 +5,9 @@
             <div class="col-12">
                 <h2 class="">{{ $group->name }}</h2>
                     <div class="d-flex flex-column">
+                        <a class="m-1 btn btn-outline-warning" href="{{ route('teachers.show', [$teacher->id])}}" class="btn btn-outline-secondary btn-sm">
+                            {{ $teacher->surname }} {{ $teacher->name }} (Куратор)
+                        </a>
                         @foreach ($students as $student)
                             <a class="m-1 btn btn-outline-info" href="{{ route('students.show', [$student->id])}}" class="btn btn-outline-secondary btn-sm">
                                 {{ $student->surname }} {{ $student->name }}

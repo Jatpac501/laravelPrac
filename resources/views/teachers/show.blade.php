@@ -3,16 +3,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="">{{ $group->name }}</h2>
-                @foreach ($students as $student)
-                    <div class="">{{ $student->surname }} {{ $student->name }}
-                    @if ($student->headOfGroup)
-                    <span class="">(Староста)</span>
-                    @endif
-                    </div>
-                @endforeach
+                <h2 class="mb-3">{{ $teacher->surname }} {{ $teacher->name }} @if ($group!=null)
+                    <a href="{{ route('groups.show', [$group->id])}}" class="btn">{{$group->name}}</a>
+                @endif</h2>
+                <a href="tel:{{$teacher->phone}}" class="btn btn-outline-info mb-3">{{ $teacher->phone }}</a>
+                <a href="mail:{{$teacher->email}}" class="btn btn-outline-info mb-3">{{ $teacher->email }}</a>
             </div>
-            <a class="btn btn-outline-secondary" href="{{ route('groups.edit', [$group->id])}}">Изменить</a>
+            <a class="btn btn-outline-secondary" href="{{ route('teachers.edit', [$teacher->id])}}">Изменить</a>
             </div>
         </div>
     </div>
