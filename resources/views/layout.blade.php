@@ -34,6 +34,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('students.index')}}">Студенты</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('subjects.index')}}">Предметы</a>
+                  </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Добавить
@@ -42,7 +45,7 @@
                       <li><a class="dropdown-item" href="{{route('groups.create')}}">Добавить группу</a></li>
                       <li><a class="dropdown-item" href="{{route('students.create')}}">Добавить студента</a></li>
                       <li><a class="dropdown-item" href="{{route('teachers.create')}}">Добавить предподавателя</a></li>
-                      <li><a class="dropdown-item" href=" ">Добавить предмет</a></li>
+                      <li><a class="dropdown-item" href="{{route('subjects.create')}}">Добавить предмет</a></li>
                     </ul>
                 </li>
                 </ul>

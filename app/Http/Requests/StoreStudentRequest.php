@@ -17,7 +17,7 @@ class StoreStudentRequest extends FormRequest
             'name'=>'required|string|max:100',
             'surname'=>'required|string|max:100',
             'phone'=>'required|string|regex:/^\+7\d{10}$/',
-            'group_id'=>'required|integer',
+            'group_id'=>'required|integer|exists:groups,id',
             'headOfGroup' => 'integer'
         ];
     }

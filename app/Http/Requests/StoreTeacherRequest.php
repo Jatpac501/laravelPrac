@@ -19,7 +19,7 @@ class StoreTeacherRequest extends FormRequest
             'surname'=>'required|string|max:100',
             'email'=>'required|string|max:1024',
             'phone'=>'required|string|regex:/^\+7\d{10}$/',
-            'group_id'=>'integer|nullable'
+            'group_id'=>'integer|nullable|exists:groups,id'
         ];
     }
 }
