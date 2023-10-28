@@ -9,9 +9,6 @@ use App\Http\Requests\StoreStudentRequest;
 
 class studentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return redirect('/groups');

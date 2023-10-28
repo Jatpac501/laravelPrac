@@ -29,13 +29,10 @@
                     <a class="nav-link" href="{{route('groups.index')}}">Группы</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href=" ">Предподаватели</a>
+                    <a class="nav-link" href="{{route('teachers.index')}}">Предподаватели</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href=" ">Предметы</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href=" ">Студенты</a>
+                    <a class="nav-link" href="{{route('students.index')}}">Студенты</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,7 +41,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{{route('groups.create')}}">Добавить группу</a></li>
                       <li><a class="dropdown-item" href="{{route('students.create')}}">Добавить студента</a></li>
-                      <li><a class="dropdown-item" href=" ">Добавить предподавателя</a></li>
+                      <li><a class="dropdown-item" href="{{route('teachers.create')}}">Добавить предподавателя</a></li>
                       <li><a class="dropdown-item" href=" ">Добавить предмет</a></li>
                     </ul>
                 </li>
