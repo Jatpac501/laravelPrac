@@ -10,4 +10,8 @@ class Subjects extends Model
     protected $table = 'subjects';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'teacher_id'];
+    public function teacher()
+    {
+        return $this->belongsTo(Teachers::class);
+    }
 }

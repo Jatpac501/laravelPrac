@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGroupRequest;
 //use Illuminate\Http\Request;
 use App\Models\Groups;
+use App\Models\Schedule;
 use App\Models\Students;
+use App\Models\Subjects;
 use App\Models\Teachers;
+use App\Models\Rooms;
 
 class groupsController extends Controller
 {
@@ -30,7 +33,10 @@ class groupsController extends Controller
         return view('groups/show',[
             'group' => Groups::findOrFail($id),
             'teacher' => Teachers::where('group_id', $id)->first(),
-            'students' => Students::where('group_id', $id)->orderBy('surname')->get()
+            'students' => Students::where('group_id', $id)->orderBy('surname')->get(),
+            'schedule' => Schedule::where('group_id', $id)->get(),
+            'subjects' => Subjects::get(),
+            'rooms' => Rooms::get()
         ]);
     }
     public function edit(string $id)

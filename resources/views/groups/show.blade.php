@@ -4,6 +4,12 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="">{{ $group->name }}</h2>
+                    @component('groups.assets.schedule')
+                        @slot('schedule')
+                            {{ $schedule }}
+                        @endslot
+                    @endcomponent
+
                     <div class="d-flex flex-column">
                         @if ($teacher != null)
                             <a class="m-1 btn btn-outline-warning" href="{{ route('teachers.show', [$teacher->id])}}" class="btn btn-outline-secondary btn-sm">
