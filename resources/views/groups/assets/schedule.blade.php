@@ -18,8 +18,8 @@
                         @endphp
                         <td>
                             @if ($schedule)
-                                <div class="">{{ $schedule->subject->name }}</div>
-                                <div class="">{{ $schedule->subject->teacher->surname }} {{ $schedule->subject->teacher->name }}</div>
+                                <div class="fw-bold">{{ $schedule->subject->name }}</div>
+                                <div class="small">{{ $schedule->subject->teacher->surname }} {{ $schedule->subject->teacher->name }}</div>
                                 <div class="">{{ $schedule->room->building }}-{{ $schedule->room->classroom }}</div>
                             @endif
                         </td>
